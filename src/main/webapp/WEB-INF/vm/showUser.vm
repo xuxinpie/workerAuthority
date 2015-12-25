@@ -1,0 +1,15 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1> Hi!</h1>
+	${user.userName}
+	##数据格式化，在spring-mvc中的velocityResolver进行配置
+	$numberTool.format("000000", ${user.id})
+	##时间格式化，对应的类型有FULL、LONG、MEDIUM、SHORT或DEFAULT
+	##$dateTool.format("FULL", ${course.startDate})
+</body>
+</html>

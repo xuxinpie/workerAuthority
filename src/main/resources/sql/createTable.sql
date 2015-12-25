@@ -1,0 +1,13 @@
+USE cnooc;
+
+CREATE TABLE USER (
+  uid INT(20) NOT NULL,
+  name VARCHAR(40) DEFAULT NULL,
+  password VARCHAR(255) DEFAULT NULL,
+  PRIMARY KEY (id)
+) ENGINE=INNODB DEFAULT CHARSET=utf8;
+
+/*Data for the table `user` */
+
+
+INSERT INTO USER VALUES ('0001','xinux','901126'),('0002','hulda','123456');

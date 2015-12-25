@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>List Users</title>
+    </head>
+
+    <body>
+        <h2>USER LIST</h2>
+        <table width="600" border="1" cellspacing="1" cellpadding="1">
+            <tr bgcolor="#999999">
+                <td>uid</td>
+                <td>name</td>
+                <td>password</td>
+            </tr>
+        #foreach($user in $users)
+            <tr>
+                <td>${user.uid}</td>
+                <td>${user.name}</td>
+                <td>${user.password}</td>
+            </tr>
+        #end
+        </table>
+    </body>
+</html>
