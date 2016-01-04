@@ -5,7 +5,8 @@
 package com.cnooc.core.service;
 
 import com.cnooc.core.exception.ServiceException;
-import com.cnooc.core.model.User;
+import com.cnooc.core.model.UserDO;
+import com.cnooc.core.vo.UserVO;
 
 import java.util.List;
 
@@ -23,7 +24,7 @@ public interface UserService {
      * @return
      * @throws ServiceException
      */
-    public User doLogin(User user) throws ServiceException;
+    public UserVO doLogin(UserDO user) throws ServiceException;
 
     /**
      *
@@ -34,22 +35,31 @@ public interface UserService {
      * @return
      * @throws ServiceException
      */
-    public boolean addUser(User user, String uid) throws ServiceException;
+    public boolean addUser(UserDO user, String uid) throws ServiceException;
 
     /**
      * 列出所有用户
      *
      * @return
      */
-    public List<User> getAllUsers();
+    public List<UserDO> getAllUsers();
 
     /**
      * 根据用户id查找用户
      *
      * @param uid
-     * @return User
+     * @return UserDO
      */
-    public User getUserById(String uid);
+    public UserDO getUserById(String uid);
+
+    /**
+     *
+     * 根据用户登陆名查询用户
+     *
+     * @param name
+     * @return
+     */
+    public UserDO getUserByName(String name);
 
 
 }

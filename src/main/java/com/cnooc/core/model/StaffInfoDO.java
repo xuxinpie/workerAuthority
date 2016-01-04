@@ -4,13 +4,15 @@
  */
 package com.cnooc.core.model;
 
+import java.util.Date;
+
 /**
  * 员工信息类_Model
  *
  * @author Xinux
- * @version $Id: StaffInfo.java, v 0.1 2015-12-24 12:07 AM Xinux Exp $$
+ * @version $Id: StaffInfoDO.java, v 0.1 2015-12-24 12:07 AM Xinux Exp $$
  */
-public class StaffInfo {
+public class StaffInfoDO {
 
     /**
      * 员工工号
@@ -28,8 +30,14 @@ public class StaffInfo {
     private String sex;
 
     /**
-     * 权限
+     * 创建时间
      */
+    private Date gmtCreate;
+
+    /**
+     * 修改时间
+     */
+    private Date gmtModified;
 
     /**
      * Getter method for property staffId.
@@ -85,5 +93,39 @@ public class StaffInfo {
         this.sex = sex;
     }
 
+    /**
+     * Getter method for property gmtCreate.
+     *
+     * @return property value of gmtCreate
+     */
+    public Date getGmtCreate() {
+        return gmtCreate;
+    }
 
+    /**
+     * Setter method for property gmtCreate.
+     *
+     * @param gmtCreate value to be assigned to property gmtCreate
+     */
+    public void setGmtCreate(Date gmtCreate) {
+        this.gmtCreate = gmtCreate;
+    }
+
+    /**
+     * Getter method for property gmtModified.
+     *
+     * @return property value of gmtModified
+     */
+    public Date getGmtModified() {
+        return gmtModified;
+    }
+
+    /**
+     * Setter method for property gmtModified.
+     *
+     * @param gmtModified value to be assigned to property gmtModified
+     */
+    public void setGmtModified(Date gmtModified) {
+        this.gmtModified = gmtModified;
+    }
 }

@@ -4,7 +4,7 @@
  */
 package com.cnooc.core.dao;
 
-import com.cnooc.core.model.User;
+import com.cnooc.core.model.UserDO;
 
 import java.util.List;
 
@@ -14,13 +14,15 @@ import java.util.List;
  */
 public interface UserDAO {
 
-    public int insertUser(User user);
+    public int insertUser(UserDO user);
 
-    public User queryUserByUid(String uid);
+    public UserDO queryUserByUid(String uid);
 
     public int updatePassword(String uid, String password);
 
-    public List<User> queryAllUsers();
+    public List<UserDO> queryAllUsers();
+
+    public UserDO queryUserByName(String userName);
 
     
 }

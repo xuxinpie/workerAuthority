@@ -20,6 +20,15 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd
     <!-- 开启Spring的Bean自动扫描机制来查找与管理Bean实例 -->
     <context:component-scan base-package="com.cnooc.core"/>
 
+    <!-- 密码加密bean -->
+    <bean id="pwdEncoder" class="com.cnooc.core.utils.PwdEncoder">
+        <property name="defaultSalt" value="*_*!"/>
+    </bean>
+
+    <!-- For hashing and salting user passwords -->
+    <bean id="passwordEncoder"
+          class="org.springframework.security.crypto.password.StandardPasswordEncoder" />
+
 
     <!-- 业务层注入 注入Service层-->
     <bean id="staffInfoOperationService" class="com.cnooc.core.serviceImpl.StaffInfoOperationServiceImpl"/>

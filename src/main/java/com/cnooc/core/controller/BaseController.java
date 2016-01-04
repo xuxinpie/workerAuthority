@@ -4,8 +4,9 @@
  */
 package com.cnooc.core.controller;
 
-import com.cnooc.core.model.User;
+import com.cnooc.core.enums.SessionKeyEnum;
 import com.cnooc.core.utils.SessionUser;
+import com.cnooc.core.vo.UserVO;
 import org.springframework.context.MessageSource;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.support.RequestContextUtils;
@@ -32,8 +33,14 @@ public class BaseController {
     @Resource
     public MessageSource messageSource;
 
-    public final static String SESSION_KEY = "sessionuserkey";
-
+    /**
+     *
+     * 构建Ajax 返回结果
+     *
+     * @param success
+     * @param arg
+     * @return
+     */
     public Map<String, Object> ajaxResult(Boolean success, Object arg) {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("result", success);
@@ -47,7 +54,7 @@ public class BaseController {
      * @param user
      * @return
      */
-    public SessionUser initSessionUser(User user) {
+    public SessionUser initSessionUser(UserVO user) {
 
         if (user == null) {
             return null;
@@ -77,7 +84,7 @@ public class BaseController {
      * @return
      */
     public SessionUser getSessionUser(HttpServletRequest request) {
-        return (SessionUser) request.getSession().getAttribute(SESSION_KEY);
+        return (SessionUser) request.getSession().getAttribute(SessionKeyEnum.SESSION_USER.getCode());
     }
 
     /**
@@ -88,7 +95,7 @@ public class BaseController {
      * @param sessionUser
      */
     public void setSessionUser(HttpServletRequest request, SessionUser sessionUser) {
-        request.getSession().setAttribute(SESSION_KEY, sessionUser);
+        request.getSession().setAttribute(SessionKeyEnum.SESSION_USER.getCode(), sessionUser);
     }
 
     /**

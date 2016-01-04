@@ -4,7 +4,7 @@
  */
 package com.cnooc.core.serviceImpl;
 
-import com.cnooc.core.model.StaffInfo;
+import com.cnooc.core.model.StaffInfoDO;
 import com.cnooc.core.service.StaffInfoOperationService;
 
 import java.util.List;
@@ -19,22 +19,22 @@ import java.util.List;
 public class StaffInfoOperationServiceImpl implements StaffInfoOperationService {
 
     @Override
-    public StaffInfo queryStaffInfoByStaffId(String staffId) {
+    public StaffInfoDO queryStaffInfoByStaffId(String staffId) {
         return null;
     }
 
     @Override
-    public List<StaffInfo> queryAllStaffInfo() {
+    public List<StaffInfoDO> queryAllStaffInfo() {
         return null;
     }
 
     @Override
-    public List<StaffInfo> queryStaffByAuthorityNO4PageIndex(String authorityNO, int startRow, int pageSize) {
+    public List<StaffInfoDO> queryStaffByAuthorityNO4PageIndex(String authorityNO, int startRow, int pageSize) {
         return null;
     }
 
     @Override
-    public boolean insertStaff(StaffInfo staffInfo) {
+    public boolean insertStaff(StaffInfoDO staffInfoDO) {
         return false;
     }
 
@@ -44,7 +44,7 @@ public class StaffInfoOperationServiceImpl implements StaffInfoOperationService 
     }
 
     @Override
-    public boolean updateStaff(StaffInfo staffInfo) {
+    public boolean updateStaff(StaffInfoDO staffInfoDO) {
         return false;
     }
 
@@ -54,7 +54,7 @@ public class StaffInfoOperationServiceImpl implements StaffInfoOperationService 
     }
 
     @Override
-    public List<StaffInfo> queryAllStaffInfoByAuthorityNO(String authorityNo) {
+    public List<StaffInfoDO> queryAllStaffInfoByAuthorityNO(String authorityNo) {
         return null;
     }
 }

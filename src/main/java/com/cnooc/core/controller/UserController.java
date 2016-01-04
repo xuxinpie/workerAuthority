@@ -4,7 +4,7 @@
  */
 package com.cnooc.core.controller;
 
-import com.cnooc.core.model.User;
+import com.cnooc.core.model.UserDO;
 import com.cnooc.core.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,14 +29,14 @@ public class UserController {
     @RequestMapping("/showUser")
     public ModelAndView showUser(HttpServletRequest request) {
         String userId = request.getParameter("uid");
-        User user = userService.getUserById(userId);
+        UserDO user = userService.getUserById(userId);
         return new ModelAndView("showUser", "user", user);
     }
 
     @RequestMapping(value = "/list", method= RequestMethod.GET)
     public ModelAndView showAllUsers() {
-        List<User> users = userService.getAllUsers();
-        for (User user : users) {
+        List<UserDO> users = userService.getAllUsers();
+        for (UserDO user : users) {
             System.out.println(user);
         }
 

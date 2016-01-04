@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cnooc.core.dao.UserDAO">
-	<resultMap id="BaseResultMap" type="com.cnooc.core.model.User">
+	<resultMap id="BaseResultMap" type="com.cnooc.core.model.UserDO">
 		<result column="uid" property="uid" />
 		<result column="name" property="name" />
 		<result column="password" property="password" />
+		<result column="privilege" property="privilege" />
 	</resultMap>
 
 	<sql id="Base_Column_List">
-		uid, name, password
+		uid, name, password, privilege
 	</sql>
 	<select id="queryUserByUid" resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
 		from user
 		where uid = #{uid}
+	</select>
+
+	<select id="queryUserByName" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from user
+		where name = #{userName}
 	</select>
 
 	<!-- 对于非简单数据类型，需要附上对应的类型 -->
@@ -26,7 +34,7 @@
 		select <include refid="Base_Column_List" /> from user <if test="_parameter 
 		!= 0"> where id = #{id,jdbcType=INTEGER} </select> -->
 	<!-- 对于数据库表的主键不是自增的类型 -->
-	<!-- <insert id="insertUser" parameterType="User"> <![CDATA[ insert into 
+	<!-- <insert id="insertUser" parameterType="UserDO"> <![CDATA[ insert into
 		user (user_name, password, age) values (#{userName}, #{password}, #{age}) 
 		]]> <selectKey resultType="int" keyProperty="id"> SELECT @@IDENTITY AS id 
 		</selectKey> </insert> -->

@@ -2,46 +2,37 @@
  * Alipay.com Inc.
  * Copyright (c) 2004-2015 All Rights Reserved.
  */
-package com.cnooc.core.model;
+package com.cnooc.core.dto;
+
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.validation.constraints.NotNull;
 
 /**
+ *
+ * 数据传输类型 —— UserDTO
+ *
  * @author Xinux
- * @version $Id: User.java, v 0.1 2015-12-24 7:04 PM Xinux Exp $$
+ * @version $Id: UserDTO.java, v 0.1 2015-12-29 11:37 AM Xinux Exp $$
  */
-public class User {
+public class UserDTO extends BaseDTO {
 
-    /**
-     * 用户Id
-     */
-    private String uid;
+    private static final long serialVersionUID = -3653684082548328746L;
 
     /**
      * 用户登陆号
      */
+    @NotNull
+    @Length(min = 1, max = 40)
     private String name;
 
     /**
      * 用户密码
      */
+    @NotEmpty
+    @Length(min = 1, max = 256)
     private String password;
-
-    /**
-     * Getter method for property uid.
-     *
-     * @return property value of uid
-     */
-    public String getUid() {
-        return uid;
-    }
-
-    /**
-     * Setter method for property uid.
-     *
-     * @param uid value to be assigned to property uid
-     */
-    public void setUid(String uid) {
-        this.uid = uid;
-    }
 
     /**
      * Getter method for property name.
@@ -78,4 +69,5 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
 }

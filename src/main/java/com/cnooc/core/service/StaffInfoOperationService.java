@@ -4,7 +4,7 @@
  */
 package com.cnooc.core.service;
 
-import com.cnooc.core.model.StaffInfo;
+import com.cnooc.core.model.StaffInfoDO;
 
 import java.util.List;
 
@@ -21,31 +21,31 @@ public interface StaffInfoOperationService {
      * 根据员工工号查找对应员工信息
      *
      * @param staffId
-     * @return User
+     * @return UserDO
      */
-    public StaffInfo queryStaffInfoByStaffId(String staffId);
+    public StaffInfoDO queryStaffInfoByStaffId(String staffId);
 
     /**
      * 列出所有员工信息
      *
      * @return
      */
-    public List<StaffInfo> queryAllStaffInfo();
+    public List<StaffInfoDO> queryAllStaffInfo();
 
     /**
      * 分页查询
      *
      * @return
      */
-    public List<StaffInfo> queryStaffByAuthorityNO4PageIndex(String authorityNO, int startRow, int pageSize);
+    public List<StaffInfoDO> queryStaffByAuthorityNO4PageIndex(String authorityNO, int startRow, int pageSize);
 
     /**
      * 添加一个员工
      *
-     * @param staffInfo
+     * @param staffInfoDO
      * @return
      */
-    public boolean insertStaff(StaffInfo staffInfo);
+    public boolean insertStaff(StaffInfoDO staffInfoDO);
 
     /**
      * 根据员工工号删除对应员工信息
@@ -58,10 +58,10 @@ public interface StaffInfoOperationService {
     /**
      * 更新员工信息
      *
-     * @param staffInfo
+     * @param staffInfoDO
      * @return
      */
-    public boolean updateStaff(StaffInfo staffInfo);
+    public boolean updateStaff(StaffInfoDO staffInfoDO);
 
     /**
      *
@@ -78,6 +78,6 @@ public interface StaffInfoOperationService {
      * @param authorityNo
      * @return
      */
-    public List<StaffInfo> queryAllStaffInfoByAuthorityNO(String authorityNo);
+    public List<StaffInfoDO> queryAllStaffInfoByAuthorityNO(String authorityNo);
 
 }

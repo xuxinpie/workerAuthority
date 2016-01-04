@@ -4,9 +4,12 @@
  */
 package com.cnooc.core.controller;
 
+import com.cnooc.core.dto.UserDTO;
+import com.cnooc.core.enums.SessionKeyEnum;
 import com.cnooc.core.exception.ServiceException;
-import com.cnooc.core.model.User;
+import com.cnooc.core.model.UserDO;
 import com.cnooc.core.service.UserService;
+import com.cnooc.core.vo.UserVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,11 +44,12 @@ public class LoginController extends BaseController {
 
     @RequestMapping(method=RequestMethod.POST)
     public ModelAndView postLogin(HttpServletRequest request, HttpServletResponse response,
-                                  ModelMap out, User user) throws IOException {
+                                  ModelMap modelMap, UserDTO userDTO) throws IOException{
         try {
-            User userModel = userService.doLogin(user);
-            setSessionUser(request, initSessionUser(userModel));
-            out.put("user", userModel);
+
+            UserVO userVO = userService.doLogin(converter(userDTO));
+            setSessionUser(request, initSessionUser(userVO));
+            modelMap.put("user", userVO);
             return new ModelAndView("main");
         } catch (ServiceException e) {
             sendError(request, response, e.getMessage());
@@ -53,10 +57,24 @@ public class LoginController extends BaseController {
         return new ModelAndView("login");
     }
 
+    /**
+     * 用户数据转换器
+     * 表格提交UserDTO 转为 UserDO
+     * @param userDTO
+     * @return
+     */
+    private UserDO converter(UserDTO userDTO) {
+
+        UserDO userDO = new UserDO();
+        userDO.setName(userDTO.getName());
+        userDO.setPassword(userDTO.getPassword());
+        return userDO;
+    }
+
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout(HttpServletRequest request, RedirectAttributes redirectAttr) {
-        removeSession(request, SESSION_KEY);
-        return "redirect:/login.htm"; //FIXME
+        removeSession(request, SessionKeyEnum.SESSION_USER.getCode());
+        return "login";
     }
 
 }

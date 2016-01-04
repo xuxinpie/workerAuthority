@@ -4,7 +4,7 @@
  */
 package com.cnooc.core.dao;
 
-import com.cnooc.core.model.StaffInfo;
+import com.cnooc.core.model.StaffInfoDO;
 
 import java.util.List;
 
@@ -20,9 +20,9 @@ public interface StaffInfoDAO {
     /**
      * 插入一条员工数据
      *
-     * @param staffInfo
+     * @param staffInfoDO
      */
-    public int insertStaffInfo(StaffInfo staffInfo);
+    public int insertStaffInfo(StaffInfoDO staffInfoDO);
 
     /**
      * 根据员工工号查找对应员工，一个员工唯一对应一个staffId
@@ -30,21 +30,21 @@ public interface StaffInfoDAO {
      * @param staffId
      * @return
      */
-    public StaffInfo findStaffInfoById(String staffId);
+    public StaffInfoDO findStaffInfoById(String staffId);
 
     /**
      * 查找全部员工
      *
      * @return
      */
-    public List<StaffInfo> findAllStaffInfos();
+    public List<StaffInfoDO> findAllStaffInfos();
 
     /**
      * 更新员工信息
      *
-     * @param staffInfo
+     * @param staffInfoDO
      */
-    public int updateStaffInfoInfo(StaffInfo staffInfo);
+    public int updateStaffInfoInfo(StaffInfoDO staffInfoDO);
 
     /**
      * 根据员工工号删除一个员工
@@ -59,7 +59,7 @@ public interface StaffInfoDAO {
      * @param staffName
      * @return
      */
-    public List<StaffInfo> findStaffInfoByName(String staffName);
+    public List<StaffInfoDO> findStaffInfoByName(String staffName);
 
     /**
      *
@@ -78,7 +78,7 @@ public interface StaffInfoDAO {
      * @param pageSize
      * @return
      */
-    public List<StaffInfo> paginateStaffInfoByAuthorityNO(String authorityNo, int startRow, int pageSize);
+    public List<StaffInfoDO> paginateStaffInfoByAuthorityNO(String authorityNo, int startRow, int pageSize);
 
     /**
      *
@@ -87,6 +87,6 @@ public interface StaffInfoDAO {
      * @param authorityNo
      * @return
      */
-    public List<StaffInfo> findAllStaffInfoByAuthorityNO(String authorityNo);
+    public List<StaffInfoDO> findAllStaffInfoByAuthorityNO(String authorityNo);
 
 }

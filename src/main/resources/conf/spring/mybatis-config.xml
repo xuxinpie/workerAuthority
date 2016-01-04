@@ -5,8 +5,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
         <!-- 命名空间 -->
     <typeAliases>
-         <typeAlias alias="User" type="com.cnooc.core.model.User"/>
-         <!--<typeAlias alias="StaffInfo" type="com.cnooc.core.model.StaffInfo"/>-->
+         <typeAlias alias="User" type="com.cnooc.core.model.UserDO"/>
+         <!--<typeAlias alias="StaffInfoDO" type="com.cnooc.core.model.StaffInfoDODO"/>-->
     </typeAliases>
  
     <!-- 映射map -->

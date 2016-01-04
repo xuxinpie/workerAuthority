@@ -56,10 +56,6 @@
         </property>
     </bean>
 
-    <!-- 通过Url访问/WEB-INF/static/目录下的静态资源 -->
-    <mvc:resources mapping="/static/**" location="/WEB-INF/static/"/>
-
-
     <!-- 视图解析类，对模型视图民称的解析，对模型视图添加前后缀 适用于JSP-->
     <!-- <bean
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -70,6 +66,11 @@
             <value>.jsp</value>
         </property>
     </bean> -->
+
+    <!-- 对静态资源文件的访问,是得页面能够加载到对应的静态资源 -->
+    <mvc:resources mapping="/img/**" location="/statics/img/" cache-period="31556926"/>
+    <mvc:resources mapping="/js/**" location="/statics/js/" cache-period="31556926"/>
+    <mvc:resources mapping="/css/**" location="/statics/css/" cache-period="31556926"/>
 
     <!-- 加载 Velocity 配置文件 -->
     <bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
@@ -142,5 +143,31 @@
             </list>
         </property>
     </bean>
+
+    <!-- 拦截器配置 -->
+    <mvc:interceptors>
+        <!-- session超时 -->
+        <bean class="com.cnooc.core.interceptor.MemberContextInterceptor">
+            <property name="loginUrl" value="/login" />
+            <property name="excludeUrls">
+                <list>
+                    <value>/testApi*</value>
+                    <value>/login*</value>
+                    <value>/css*</value>
+                    <value>/fonts*</value>
+                    <value>/js*</value>
+                    <value>/img*</value>
+                </list>
+            </property>
+        </bean>
+
+        <mvc:interceptor>
+            <mvc:mapping path="/login" />
+            <!-- 登录检查Interceptor -->
+            <bean id="checkLoginInterceptor" class="com.cnooc.core.interceptor.CheckLoginInterceptor" />
+        </mvc:interceptor>
+
+    </mvc:interceptors>
+
 
 </beans>
