@@ -82,7 +82,7 @@
         <async-supported>true</async-supported>
     </servlet>
     <!-- <url-pattern>/</url-pattern> 会匹配到/login这样的路径型url，不会匹配到模式为*.jsp这样的后缀型url -->
-    <!-- <url-pattern>/*</url-pattern> 会匹配所有url：路径型的和后缀型的url(包括/login,*.jsp,*.js和*.html等) -->
+    <!-- <url-pattern>/*</url-pattern> 会匹配所有url：路径型的和后缀型的url(包括/login,*.jsp,*.js和*.html等) 不推荐使用,会报错 -->
     <!-- <url-pattern>*.action</url-pattern>只会拦截.action后缀的请求，这种配置不会影响静态资源的访问 -->
     <servlet-mapping>
         <servlet-name>springMVC</servlet-name>
@@ -90,24 +90,26 @@
     </servlet-mapping>
 
     <welcome-file-list>
-        <welcome-file>/WEB-INF/html/welcome.html</welcome-file>
+        <welcome-file>/WEB-INF/vm/login.ht</welcome-file>
     </welcome-file-list>
 
     <!-- 错误跳转页面 -->
+    <!--这里配置的的location其实会被当成一个请求来访问。我们的DispatcherServlet会拦截这个请求而造成无法访问，此时的结果是用户界面一片空白。-->
+    <!-- 404.htm其实是一个静态资源，需要用访问静态资源的方式去访问, 所以要设置mvc:resources -->
     <error-page>
         <!-- 路径不正确 -->
         <error-code>404</error-code>
-        <location>/WEB-INF/errorPage/404.jsp</location>
+        <location>/html/errorPage/404.html</location>
     </error-page>
     <error-page>
         <!-- 没有访问权限，访问被禁止 -->
         <error-code>405</error-code>
-        <location>/WEB-INF/errorPage/405.jsp</location>
+        <location>/html/errorPage/405.html</location>
     </error-page>
     <error-page>
         <!-- 内部错误 -->
         <error-code>500</error-code>
-        <location>/WEB-INF/errorPage/500.jsp</location>
+        <location>/html/errorPage/500.html</location>
     </error-page>
 
 </web-app>

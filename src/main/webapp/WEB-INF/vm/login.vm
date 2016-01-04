@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="philip">
     <link rel="icon" href="/img/book_logo.png">
-    <link href="/css/bootStrap/bootstrap.css" rel="stylesheet">
+    <link href="/css/bootstrap/2.3.2/bootstrap.css" rel="stylesheet">
     <link href="/css/flat-ui/flat-ui.css" rel="stylesheet">
 </head>
 <body>
@@ -30,7 +30,7 @@
             </div>
 
             <a class="btn btn-primary btn-large btn-block" id="loginBtn">Login</a>
-##            <a class="login-link" href="#">Lost your password?</a>
+            <a class="login-link" href="/register">Register New User</a>
         </div>
     </div>
 </div>

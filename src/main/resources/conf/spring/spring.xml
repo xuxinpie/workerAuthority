@@ -29,7 +29,6 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd
     <bean id="passwordEncoder"
           class="org.springframework.security.crypto.password.StandardPasswordEncoder" />
 
-
     <!-- 业务层注入 注入Service层-->
     <bean id="staffInfoOperationService" class="com.cnooc.core.serviceImpl.StaffInfoOperationServiceImpl"/>
 

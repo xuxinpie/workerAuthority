@@ -8,7 +8,6 @@ import com.cnooc.core.dao.UserDAO;
 import com.cnooc.core.exception.ServiceException;
 import com.cnooc.core.model.UserDO;
 import com.cnooc.core.service.UserService;
-import com.cnooc.core.utils.PwdEncoder;
 import com.cnooc.core.vo.UserVO;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
