@@ -34,8 +34,8 @@
         </div>
     </div>
 </div>
-</body>
-<script src="/js/jquery/2.1.4/jquery-2.1.4.js"></script>
+<script src="/js/jquery/2.1.4/jquery-2.1.4.min.js"></script>
 <script src="/js/noty/packaged/jquery.noty.packaged.js"></script>
 <script src="/js/login.js"></script>
+</body>
 </html>

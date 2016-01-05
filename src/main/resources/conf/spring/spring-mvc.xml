@@ -68,9 +68,10 @@
     </bean> -->
 
     <!-- 对静态资源文件的访问,是得页面能够加载到对应的静态资源 -->
-    <mvc:resources mapping="/img/**" location="/statics/img/" cache-period="31556926"/>
-    <mvc:resources mapping="/js/**" location="/statics/js/" cache-period="31556926"/>
-    <mvc:resources mapping="/css/**" location="/statics/css/" cache-period="31556926"/>
+    <mvc:resources mapping="/img/**" location="/statics/img/" cache-period="0"/>
+    <mvc:resources mapping="/js/**" location="/statics/js/" cache-period="0"/>
+    <mvc:resources mapping="/css/**" location="/statics/css/" cache-period="0"/>
+    <mvc:resources mapping="/html/**" location="/statics/html/" cache-period="0"/>
 
     <!-- 加载 Velocity 配置文件 -->
     <bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">

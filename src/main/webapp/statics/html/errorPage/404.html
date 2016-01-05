@@ -3,11 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>404 Page</title>
+    <link href="/css/errorpage.css" rel="stylesheet">
 </head>
 <body>
-    <div style="text-align: center">
-        <img src="/img/404.jpg" alt="404 Page">
+    <div class="picture-404">
+        <img src="/img/404.jpg" alt="404">
     </div>
-
+    <div class="text-404">
+        <span id="J_Time">5 </span>秒钟后自动跳转...
+    </div>
+    <script src="/js/jquery/2.1.4/jquery-2.1.4.min.js"></script>
+    <script src="/js/delayRedirect.js"></script>
+    <script type="text/javascript">
+        var workerAuthority = workerAuthority || {};
+        workerAuthority.delayUrl("http://localhost:8080/main");
+    </script>
 </body>
 </html>
